@@ -10,8 +10,21 @@ console.log("Player selected " + playerSelection);
 console.log("computer selected " + computerSelection);
 
 //print the result of the game
-let result = playRound();
+let result = playRound(playerSelection, computerSelection);
 console.log(result);
+
+function getComputerChoice() {
+  const selector = Math.floor(Math.random() * 3);
+  if (selector === 0) {
+    return "rock";
+  } else if (selector === 1) {
+    return "paper";
+  } else if (selector === 2) {
+    return "scissors";
+  } else {
+    return "Error, selector returned " + selector;
+  }
+}
 
 function playRound(playerSelection, computerSelection) {
   console.log(
@@ -40,18 +53,5 @@ function playRound(playerSelection, computerSelection) {
     return "computer wins! ☹";
   } else {
     return "error: could not compute winner. something aint right with function playRound";
-  }
-}
-
-function getComputerChoice() {
-  const selector = Math.floor(Math.random() * 3);
-  if (selector === 0) {
-    return "rock";
-  } else if (selector === 1) {
-    return "paper";
-  } else if (selector === 2) {
-    return "scissors";
-  } else {
-    return "Error, selector returned " + selector;
   }
 }
